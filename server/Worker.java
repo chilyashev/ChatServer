@@ -80,7 +80,7 @@ public class Worker implements Runnable {
 
                 String msgData[] = line/*.substring(0, 16)*/.split(";");
 
-                int msgType = 0, sender = 0, receiver = 0;
+                int msgType, sender, receiver;
                 // 0001;0004;0005;cockcockcockkokokokokokokokokokokokoko
                 try {
                     msgType = Integer.parseInt(msgData[0]);
@@ -109,7 +109,6 @@ public class Worker implements Runnable {
                             sendMessage("You said: " + msg.getMessage());
                             break;
                         case ChatMessage.TYPE_GET_FRIENDS:
-                            clit.loadFriends();
                             stmt = con.prepareStatement("SELECT u.id, u.name\n" +
                                     "FROM user_friends uf\n" +
                                     "  INNER JOIN user u ON u.id = uf.friend_id\n" +

@@ -17,7 +17,6 @@ public class DBSettings {
     public static final String PASS = "123";
 
     public static Connection getConnection() {
-        //STEP 3: Open a connection
         System.out.println("Connecting to database...");
         try {
             Class.forName("com.mysql.jdbc.Driver");

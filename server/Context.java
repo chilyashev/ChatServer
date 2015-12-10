@@ -26,6 +26,13 @@ public class Context {
     public synchronized void addClient(String key, Object value) {
         clients.put(key, value);
     }
+    public synchronized ChatUser getClient(String key) {
+        return (ChatUser)clients.get(key);
+    }
+    public synchronized HashMap<String, Object> getClients() {
+        return clients;
+    }
+
 
     public synchronized void set(String key, Object value) {
         data.put(key, value);
